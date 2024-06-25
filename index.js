@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 // MongoDB connection
-mongoose.connect('mongodb+srv://netik00:qtTk8lPR3ahTBtkE@clustor0.exbwhf8.mongodb.net/?retryWrites=true&w=majority&appName=Clustor0', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://netik00:qtTk8lPR3ahTBtkE@clustor0.exbwhf8.mongodb.net/?retryWrites=true&w=majority&appName=Clustor0', { useNewUrlParser: true, useUnifiedTopology: true, serverSelectionTimeoutMS: 5000, socketTimeoutMS: 45000 })
 .then(() => console.log('MongoDB connected'))
 .catch(err => console.log(err));
 // Schema and Model
