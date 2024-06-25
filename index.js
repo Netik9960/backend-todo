@@ -20,11 +20,11 @@ completed: Boolean
 });
 const Todo = mongoose.model('Todo', todoSchema);
 // Routes
-app.get('/todos', async (req, res) => {
+app.get('/', async (req, res) => {
 const todos = await Todo.find();
 res.json(todos);
 });
-app.post('/todos', async (req, res) => {
+app.post('/', async (req, res) => {
 const newTodo = new Todo({
 text: req.body.text,
 completed: false
@@ -32,7 +32,7 @@ completed: false
 await newTodo.save();
 res.json(newTodo);
 });
-app.delete('/todos/:id', async (req, res) => {
+app.delete('/:id', async (req, res) => {
 const result = await Todo.findByIdAndDelete(req.params.id);
 res.json(result);
 });
