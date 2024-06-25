@@ -4,7 +4,10 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 5000;
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE']
+  }));
 app.use(express.json());
 // MongoDB connection
 mongoose.connect('mongodb+srv://netik00:qtTk8lPR3ahTBtkE@clustor0.exbwhf8.mongodb.net/?retryWrites=true&w=majority&appName=Clustor0', { useNewUrlParser: true, useUnifiedTopology: true, serverSelectionTimeoutMS: 5000, socketTimeoutMS: 45000 })
